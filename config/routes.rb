@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   
+  
+  # 7.4.4 Deploying to production with SSL
+  # http://www.railstutorial.org/book/sign_up#sec-signup_form
+
+  
   resources :users
   
   root  'static_pages#home'
