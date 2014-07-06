@@ -1,20 +1,23 @@
 Rails.application.routes.draw do
   
   
-  # 7.4.4 Deploying to production with SSL
-  # http://www.railstutorial.org/book/sign_up#sec-signup_form
-
+  # 8.2 Signin success
+  # http://www.railstutorial.org/book/sign_in_out#cha-sign_in_sign_out
+  
   
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
   
   root  'static_pages#home'
   
   match '/signup',  to: 'users#new',            via: 'get'
   
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
+    
   match '/help',    to: 'static_pages#help',    via: 'get'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
-  
   
   
   # The priority is based upon order of creation: first created -> highest priority.
