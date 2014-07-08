@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   
   
-  # 8.2 Signin success
-  # http://www.railstutorial.org/book/sign_in_out#cha-sign_in_sign_out
+  # 9.4.1 Administrative users
+  # http://www.railstutorial.org/book/updating_and_deleting_users#cha-updating_showing_and_deleting_users
   
   
   resources :users
