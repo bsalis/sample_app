@@ -1,14 +1,10 @@
 Rails.application.routes.draw do
   
-  
-  # 9.4.1 Administrative users
-  # http://www.railstutorial.org/book/updating_and_deleting_users#cha-updating_showing_and_deleting_users
-  
-  
-  resources :users
-  resources :sessions, only: [:new, :create, :destroy]
-  
   root  'static_pages#home'
+  
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :users
+  resources :microposts, only: [:create, :destroy]    # belongs to user
   
   match '/signup',  to: 'users#new',            via: 'get'
   
