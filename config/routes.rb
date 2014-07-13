@@ -1,10 +1,23 @@
 Rails.application.routes.draw do
   
+  # 11.2.3 Following and followers pages
+  # http://www.railstutorial.org/book/following_users#cha-following_users
+  
   root  'static_pages#home'
   
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users
+  
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  
+  resources :relationships, only: [:create, :destroy]
+  
   resources :microposts, only: [:create, :destroy]    # belongs to user
+  
+  
   
   match '/signup',  to: 'users#new',            via: 'get'
   
